@@ -7,7 +7,7 @@ import {
   MethodNode,
   Opcodes,
   VarInsnNode
-} from "../coremods";
+} from "coremods";
 
 function initializeCoreMod(): CoreMods {
   return {
@@ -22,7 +22,10 @@ function initializeCoreMod(): CoreMods {
         const target = new InsnList();
         target.add(new InsnNode(Opcodes.DUP));
         target.add(new VarInsnNode(Opcodes.ALOAD, 1));
-        target.add(new MethodInsnNode(Opcodes.INVOKESTATIC, 'io/github/noeppi_noeppi/mods/sandbox/impl/level/ChunkLevelInitializer', 'initChunkGenerator', '(Lnet/minecraft/world/level/chunk/ChunkGenerator;Lnet/minecraft/server/MinecraftServer;)V'));
+        target.add(new MethodInsnNode(Opcodes.INVOKESTATIC,
+          'io/github/noeppi_noeppi/mods/sandbox/impl/level/ChunkLevelInitializer',
+          'initChunkGenerator', '(Lnet/minecraft/world/level/chunk/ChunkGenerator;Lnet/minecraft/server/MinecraftServer;)V'
+        ));
         
         for (let i = 0; i < method.instructions.size(); i++) {
           const node = method.instructions.get(i) as AbstractInsnNode;

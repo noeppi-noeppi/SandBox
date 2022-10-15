@@ -8,7 +8,7 @@ import {
   Opcodes,
   TypeInsnNode,
   VarInsnNode
-} from "../coremods";
+} from "coremods";
 
 function initializeCoreMod(): CoreMods {
   return {
@@ -27,7 +27,10 @@ function initializeCoreMod(): CoreMods {
         target.add(new JumpInsnNode(Opcodes.IFEQ, label));
         target.add(new VarInsnNode(Opcodes.ALOAD, 0));
         target.add(new VarInsnNode(Opcodes.ALOAD, 1));
-        target.add(new MethodInsnNode(Opcodes.INVOKESTATIC, 'io/github/noeppi_noeppi/mods/sandbox/impl/WorldGenRegistry', 'forceValid', '(Lnet/minecraft/core/Holder$Reference;Lnet/minecraft/core/Registry;)Z'));
+        target.add(new MethodInsnNode(Opcodes.INVOKESTATIC,
+          'io/github/noeppi_noeppi/mods/sandbox/impl/WorldGenRegistry',
+          'forceValid', '(Lnet/minecraft/core/Holder$Reference;Lnet/minecraft/core/Registry;)Z'
+        ));
         target.add(new JumpInsnNode(Opcodes.IFEQ, label));
         target.add(new InsnNode(Opcodes.ICONST_1));
         target.add(new InsnNode(Opcodes.IRETURN));

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var coremods_1 = require("../coremods");
+var coremods_1 = require("coremods");
 function initializeCoreMod() {
     return {
         'make_holders_valid': {

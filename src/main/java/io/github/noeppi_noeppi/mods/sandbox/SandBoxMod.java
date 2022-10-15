@@ -6,6 +6,7 @@ import io.github.noeppi_noeppi.mods.sandbox.gen.ExtendedNoiseGenerator;
 import io.github.noeppi_noeppi.mods.sandbox.impl.EmptySurfaceRule;
 import io.github.noeppi_noeppi.mods.sandbox.surface.BiomeSurface;
 import io.github.noeppi_noeppi.mods.sandbox.surface.SurfaceRuleSet;
+import io.github.noeppi_noeppi.mods.sandbox.template.PoolExtension;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
@@ -55,6 +56,11 @@ public final class SandBoxMod extends ModX {
         event.create(new RegistryBuilder<BiomeSurface>()
                 .setName(SandBox.BIOME_SURFACE_REGISTRY.location())
                 .dataPackRegistry(BiomeSurface.DIRECT_CODEC)
+        );
+        
+        event.create(new RegistryBuilder<PoolExtension>()
+                .setName(SandBox.TEMPLATE_POOL_EXTENSION_REGISTRY.location())
+                .dataPackRegistry(PoolExtension.DIRECT_CODEC)
         );
     }
     
