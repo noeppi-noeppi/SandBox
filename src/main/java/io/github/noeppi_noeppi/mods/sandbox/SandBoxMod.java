@@ -14,7 +14,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.registries.NewRegistryEvent;
 import net.minecraftforge.registries.RegisterEvent;
@@ -42,9 +41,7 @@ public final class SandBoxMod extends ModX {
             try {
                 Class.forName("io.github.noeppi_noeppi.mods.sandbox.dev.SandBoxDev").getMethod("init").invoke(null);
             } catch (Exception | NoClassDefFoundError e) {
-                if (!FMLEnvironment.production) {
-                    throw new RuntimeException(e);
-                }
+                //
             }
         }
     }
