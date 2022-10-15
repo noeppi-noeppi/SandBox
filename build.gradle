@@ -13,7 +13,10 @@ repositories {
 
 sourceSets {
     datagen {
-        compileClasspath = implementation.compileClasspath
+        compileClasspath = configurations.compileClasspath
+    }
+    main {
+        java.srcDirs += [ file('./src/generated/java') ]
     }
 }
 
@@ -27,8 +30,12 @@ dependencies {
 
 minecraft {
     runs {
-        "${project.modid}" {
-            source sourceSets.datagen
+        data {
+            mods {
+                "${project.modid}" {
+                    source sourceSets.datagen
+                }
+            }
         }
     }
 }
